@@ -13,7 +13,7 @@
 .chat{
   background: rgb(185, 185, 185);
   height: 90vh;
-  width:90%;
+  width:70%;
   position: relative;
   border-radius: 20px;
   padding: 1% 1%;
@@ -23,9 +23,9 @@
   display: flex;
   background-color: black;
   height:5vh;
-  width: 50%;
+  width: 80%;
   position: absolute;
-  bottom: 1.5%;
+  bottom: 3.5%;
   justify-content: space-around;
   align-items: center;
   border-radius: 20px;
@@ -35,7 +35,7 @@
   border: solid 3px white;
 }
 .input{
-  height: 2.5vh;
+  height: 40%;
   width: 70%;
   border-radius: 30px;
   border: solid 3px rgb(255, 255, 255);
