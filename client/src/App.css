@@ -1,21 +1,47 @@
 *{
   padding: 0%;
   margin: 0%;
+  background-color: gray;
+  font-family: 'Open Sans', sans-serif;
 }
 .main{
   padding: 1% 10%;
 }
 .chat{
-  background: hotpink;
-  height: 85vh;
-  width:100%;
+  background: rgb(185, 185, 185);
+  height: 90vh;
+  width:90%;
+  position: relative;
+  border-radius: 20px;
+  padding: 1% 1%;
+  border: 5px solid white;
 }
 .msg{
-  background-color: gray;
+  display: flex;
+  background-color: black;
   height:5vh;
-  padding: 1% 1%;
+  width: 50%;
+  position: absolute;
+  bottom: 1.5%;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: .5% 1%;
+  border: solid 4px white;
 }
 .input{
   height: 2.5vh;
-  width: 75%;
+  width: 70%;
+  border-radius: 30px;
+  border: solid 3px rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255) !important;
+  color: black;
+  padding: .5% 1.5%;
+  font-size: 90%;
+}
+.i{
+  background: transparent;
+  color: white;
 }
