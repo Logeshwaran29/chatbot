@@ -4,12 +4,12 @@ import './App.css'
 
 function App() {
   const [userInput,setInput]=useState('');
-  const [chatMsg,setChat]=useState({});
+  const [chatMessages,setChatMessages]=useState({});
 
   const setMessage =()=>{
     if(userInput.trim()!==''){
-      setChat({ type: 'user', text: userInput });
-      console.log(chatMsg);
+      setChatMessages({ type: 'user', text: userInput });
+      console.log(chatMessages);
     }
   }
 
@@ -25,7 +25,23 @@ function App() {
     <div className='main'>
         <div className="chat">
           <div className="dis">
-
+            {/* {chatMessages.map((message, index) => (
+            <div
+            key={index}
+            style={{
+              padding: '10px',
+              borderRadius: '8px',
+              marginBottom: '5px',
+              marginLeft: message.type === 'user' ? '0' : 'auto',
+              marginRight: message.type === 'user' ? 'auto' : '0',
+              backgroundColor: message.type === 'user' ? '#3498db' : '#e0e0e0',
+              color: message.type === 'user' ? '#fff' : '#333',
+              wordWrap: 'break-word',
+            }}
+            >
+            {message.text}
+            </div>
+            ))}; */}
           </div>
           <div className="msg">
             <input className="input" type="text" placeholder='Type your message' onChange={(e) =>setInput(e.target.value)}/>
