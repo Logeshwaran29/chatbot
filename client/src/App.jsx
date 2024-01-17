@@ -1,15 +1,20 @@
 import { useState } from 'react'
 import './App.css'
+// import axios from 'axios'
 
 function App() {
   const [userInput,setInput]=useState('');
-  const [chatMsg,setChat]=useState([]);
+  const [chatMsg,setChat]=useState({});
 
   const setMessage =()=>{
     if(userInput.trim()!==''){
-      setChat(prevMessages => [...prevMessages, { type: 'user', text: userInput }]);
+      setChat({ type: 'user', text: userInput });
       console.log(chatMsg);
     }
+  }
+
+  const getMsg=()=>{
+    
   }
 
   const sendMsg =()=>{
