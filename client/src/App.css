@@ -176,13 +176,15 @@
   max-width: 50%;
 }
 .icon{
-  background-color:gold transparent;
+  background: transparent;
 }
 .ii{
   width: 10%;
   height: 10%;
   padding: 1% 1%;
+  background: transparent;
 }
 .tt{
   padding: 1% 1%;
+  background-color: aqua transparent;
 }
