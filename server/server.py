@@ -10,9 +10,7 @@ collection=db.ksrEng
 
 @app.route('/')
 def index():
-    # res=collection.find({'key':'admission details'})
-    res = collection.find({'key': {'$elemMatch': {'$eq': 'ug'}}})
-
+    res = collection.find({'key': {'$elemMatch': {'$eq': 'hostel'}}}) 
     output=[document.get('res',None) for document in res]
     data=json_util.dumps(output)
     return jsonify(data)
