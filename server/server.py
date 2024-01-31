@@ -1,19 +1,26 @@
 from flask import Flask,jsonify
 from pymongo import MongoClient
 from bson import json_util
+from flask_cors import CORS
 
 app=Flask(__name__)
+CORS(app)
 
 client = MongoClient('mongodb://localhost:27017')
 db=client.Tiruchengode
 collection=db.ksrEng
 
-@app.route('/')
-def index():
-    res = collection.find({'key': {'$elemMatch': {'$eq': 'hostel'}}}) 
+@app.route('/chat',methods=['GET'])
+def chat(req):
+    res = collection.find({'key': {'$elemMatch': {'$eq': req}}}) 
     output=[document.get('res',None) for document in res]
     data=json_util.dumps(output)
+    print(data)
     return jsonify(data)
+
+@app.route('/')
+def index():
+    return jsonify("server is running")
 
 if __name__ == '__main__':
     app.run(debug=True)

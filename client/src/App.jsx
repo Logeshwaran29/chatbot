@@ -1,5 +1,6 @@
 import React, { useState , useEffect , useRef } from 'react';
 import './App.css'
+import axios from 'axios';
 
 const UserMessage = ({ text }) => (
   <div className="user">
@@ -25,6 +26,15 @@ const ChatApp = () => {
         { type: 'user', text: input },
       ]);
 
+      axios.get('http://127.0.0.1:5000/chat',input.trim().toLowerCase())
+      .then(res =>{
+        console.log(res);
+      })
+      .catch(err =>{
+        console.log(err);
+      })
+      
+      
       const botres="success"+' '+input.toLowerCase();
       setChatMessages((prevMessages) => [
         ...prevMessages,{type: 'bot', text:botres}
