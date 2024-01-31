@@ -26,7 +26,7 @@ const ChatApp = () => {
         { type: 'user', text: input },
       ]);
 
-      axios.get('http://127.0.0.1:5000/chat',input.trim().toLowerCase())
+      axios.post('http://127.0.0.1:5000/chat',{req : input.trim().toLowerCase()})
       .then(res =>{
         console.log(res);
       })
