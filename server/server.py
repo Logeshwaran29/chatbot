@@ -11,7 +11,6 @@ db=client.Tiruchengode
 collection=db.ksrEng
 
 @app.route('/chat',methods=['POST'])
-@cross_origin(supports_credentials=True)
 def chat(req):
     res = collection.find({'key': {'$elemMatch': {'$eq': req}}}) 
     output=[document.get('res',None) for document in res]
