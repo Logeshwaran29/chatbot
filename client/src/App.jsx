@@ -2,43 +2,44 @@ import React, { useState , useEffect , useRef } from 'react';
 import './App.css'
 import axios from 'axios';
 
-const UserMessage = ({ text }) => (
-  <div className="user">
-    <div className='tt'>{text}</div> 
-  </div>
-);
+const UserMessage = ({ text }) => {
+  const content = Object.values(text).map((value, index) => (
+    <div className='tt' key={index}>{value}</div>
+  ));
+  return <div className="user">{content}</div>
+};
 
-const BotMessage = ({ text }) => (
-  <div className="bot">
-    <div className='tt'>{text}</div>
-  </div>
-);
+const BotMessage = ({ text }) => {
+  const content = Object.values(text).map((value, index) => (
+    <div className='tt' key={index}>{value}</div>
+  ));
+  return <div className="bot">{content}</div>
+};
 
 const ChatApp = () => {
   const [input, setInput] = useState('');
-  const [chatMessages, setChatMessages] = useState([{type:'bot',text:'hello'}]);
+  const [chatMessages, setChatMessages] = useState([{type:'bot',text:['hello']}]);
   const messagesEndRef = useRef();
 
   const sendMsg = () => {
     if (input.trim() !== '') {
       setChatMessages((prevMessages) => [
         ...prevMessages,
-        { type: 'user', text: input },
+        { type: 'user', text: [input] },
       ]);
+
 
       axios.post('http://127.0.0.1:5000/chat',{"query" : input.trim()})
       .then(response =>{
-        console.log(response.data.data[0].res);
+        console.log(response.data.data[0].key);
+        setChatMessages((prevMessages) => [
+          ...prevMessages,{type: 'bot', text: response.data.data[0].res }
+        ]);
       })
       .catch(err =>{
         console.log(err);
       })
       
-      
-      const botres="success"+' '+input.toLowerCase();
-      setChatMessages((prevMessages) => [
-        ...prevMessages,{type: 'bot', text:botres}
-      ]);
       setInput('');
     }
   };

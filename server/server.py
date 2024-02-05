@@ -28,10 +28,17 @@ def chat():
 
         if query :
             res=list(collection.find({'key':{'$in':[query]}}))
-            for item in res:
-                item['_id'] = str(item['_id'])
+            if res:
+                for item in res:
+                    item['_id'] = str(item['_id'])
             
-            return jsonify({"data":res})
+                return jsonify({"data":res})
+            else:
+                out=list(collection.find({'key':'error'}))
+                for item in out:
+                    item['_id'] = str(item['_id'])
+
+                return jsonify({"data":out})
         else :
             return jsonify({"error":"invalid query"}),400
         
