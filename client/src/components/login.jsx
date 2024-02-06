@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 
 const login = () =>{
-
+    return(
+        <div className="login">login</div>
+    )
 }
 
-export default login
+export default login;

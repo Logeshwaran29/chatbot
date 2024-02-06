@@ -11,6 +11,9 @@ client = MongoClient('mongodb://localhost:27017')
 db=client.Tiruchengode
 collection=db.ksrEng
 
+db1=client.Administor
+coll=db1.query
+
 # @app.route('/admin',methods=['GET', 'POST'])
 # def admin():
 #     req=request.json
@@ -29,11 +32,25 @@ def chat():
         if query :
             res=list(collection.find({'key':{'$in':[query]}}))
             if res:
+                data={
+                    "key":"answered",
+                    "query":req.get('query','')
+                }
+
+                coll.insert_one(data)
+
                 for item in res:
                     item['_id'] = str(item['_id'])
             
                 return jsonify({"data":res})
             else:
+                data={
+                    "key":"not answered",
+                    "query":req.get('query','')
+                }
+
+                coll.insert_one(data)
+                
                 out=list(collection.find({'key':'error'}))
                 for item in out:
                     item['_id'] = str(item['_id'])
