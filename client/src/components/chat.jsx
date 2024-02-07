@@ -16,7 +16,7 @@ const BotMessage = ({ text }) => {
   return <div className="bot">{content}</div>
 };
 
-const ChatApp = () => {
+const Chat = () => {
   const [input, setInput] = useState('');
   const [chatMessages, setChatMessages] = useState([{type:'bot',text:['hello']}]);
   const messagesEndRef = useRef();
@@ -83,4 +83,4 @@ const ChatApp = () => {
   );
 };
 
-export default ChatApp;
+export default Chat;
