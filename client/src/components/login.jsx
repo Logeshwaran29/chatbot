@@ -11,6 +11,17 @@ const login = () => {
   const [password, setPassword] = useState('');
   const link = useNavigate();
 
+  const failure = (msg) =>{
+    toast.error(msg,{
+      position: 'top-right',
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -23,10 +34,10 @@ const login = () => {
         console.log(res);
         if(res.data.data ==='ok'){
           link("/admin-view");
-        }else if(res.data.data ==='wrong pass'){
-          toast("Enter correct password",{style:{background:"red"}});
+        }else if(res.data.data === 'wrong pass'){
+          failure("Enter correct password");
         }else if (res.data.data === 'wrong user'){
-          toast("Enter correct username",{style:{background:'red'}});
+          failure("Enter correct username");
         }  
       })
       .catch(e => console.log(e));
@@ -64,7 +75,7 @@ const login = () => {
               <button type="submit">Login</button>
             </div>
           </form>
-          <ToastContainer/>
+          <ToastContainer />
         </div>
     </div>
   );
