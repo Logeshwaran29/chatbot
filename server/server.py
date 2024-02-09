@@ -13,6 +13,7 @@ collection=db.ksrEng
 
 db1=client.Administor
 coll=db1.query
+coll1=db1.login
 
 # @app.route('/admin',methods=['GET', 'POST'])
 # def admin():
@@ -22,6 +23,25 @@ coll=db1.query
 #     res=list(collection.find({}, {'_id': 0}))
 #     return jsonify(res)
 
+@app.route('/login',methods=['POST'])
+def login():
+
+    try:
+        req=request.json
+        name=req.get('name','')
+        password=req.get('password','')
+        res=coll1.find_one({'name':name})
+
+        if res :
+            if res.get('pass', '') == password : return jsonify({'data':'ok'})
+            else : return jsonify({'data':'wrong pass'})
+        
+        else : return jsonify({'data':'wrong user'})
+
+    except Exception as e :
+        print("Exception",e)
+        return jsonify({"error":"invalid query"}),500
+    
 @app.route('/chat',methods=['POST'])
 def chat():
 

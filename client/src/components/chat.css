@@ -8,7 +8,7 @@
   
   .chat {
     overflow: hidden;
-    background: rgb(185, 185, 185);
+    background: rgba(185, 185, 185,0.5);
     height: 80vh;
     width:50%;
     position: relative;
