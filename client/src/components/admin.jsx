@@ -6,19 +6,26 @@ import axios from 'axios';
 const admin = () =>{
     const [selected,setSelected]=useState('all');
 
-    const handle = (event) => {
-        setSelected(event.target.value);
+    const options = [
+        { value: 'option1', label: 'Option 1' },
+        { value: 'option2', label: 'Option 2' },
+        { value: 'option3', label: 'Option 3' },
+    ];
+
+    const handleSelectChange = (selectedOption) => {
+        setSelected(selectedOption);
     };
 
     return(
         <div className="admin">
             <div className="drop-box">
-                {/* <select className="drop" name='options' onChange={handle}>
-                    <option className='option' value='all'>All</option>
-                    <option className='option' value='answer'>Answered</option>
-                    <option className='option' value='notAns'>Not Answered</option>
-                </select> */}
-                
+                    <Select
+                    id="dropdown"
+                    options={options}
+                    value={selected}
+                    onChange={handleSelectChange}
+                    isSearchable={false}
+                    />
             </div>
         </div>
     )
