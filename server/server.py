@@ -50,7 +50,16 @@ def chat():
         query=req.get('query','').lower()
 
         if query :
-            res=list(collection.find({'key':{'$in':[query]}}))
+            words = query.split()
+            queries = [
+                {'key': {'$in': [' '.join(words[i:i+n]) for i in range(len(words)-n+1)]}}
+                for n in range(1, len(words) + 1)
+            ]
+
+            req_query = {'$or':queries}
+            
+            res=list(collection.find(req_query))
+
             if res:
                 data={
                     "key":"answered",
