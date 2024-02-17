@@ -4,3 +4,9 @@
     height: 100vh;
     background-color: aqua;
 }
+
+.drop-box{
+    width:25%;
+    height: 0%;
+    margin-top: 1%;
+}
