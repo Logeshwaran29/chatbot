@@ -15,13 +15,18 @@ db1=client.Administor
 coll=db1.query
 coll1=db1.login
 
-# @app.route('/admin',methods=['GET', 'POST'])
-# def admin():
-#     req=request.json
-#     collection.insert_one(req)
-
-#     res=list(collection.find({}, {'_id': 0}))
-#     return jsonify(res)
+@app.route('/admin',methods=['POST'])
+def admin():
+    req=request.json
+    query=req.get('query','')
+    res=[]
+    if query== "all":
+        res=list(coll.find({}, {'_id': 0}))
+    elif query == "ans":
+        res=list(coll.find({'key':'answered'}, {'_id': 0}))
+    elif query == "nAns": 
+        res=list(coll.find({'key':'not answered'}, {'_id': 0}))
+    return jsonify(res)
 
 @app.route('/login',methods=['POST'])
 def login():

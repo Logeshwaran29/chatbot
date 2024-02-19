@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './admin.css';
 import Select from 'react-select';
 import axios from 'axios';
 
 const admin = () =>{
-    const [selected,setSelected]=useState('all');
+    const [selected,setSelected]=useState({ value: 'all', label: 'All' });
+    const [search,setSearch]=useState('all');
+    const [data,setData]=useState([]);
 
     const options = [
         { value: 'all', label: 'All' },
@@ -14,7 +16,24 @@ const admin = () =>{
 
     const handleSelectChange = (selectedOption) => {
         setSelected(selectedOption);
+        setSearch(selectedOption.value);
     };
+
+    useEffect(() => {
+      const fData= async()=>{
+        try{
+          await axios.post('http://127.0.0.1:5000/admin',{"query" : search})
+          .then(res =>{
+            setData(res.data);
+            console.log(res.data);
+          })
+          .catch(err => console.log(err));
+        }catch(e){
+          console.error(e);
+        }
+      }
+      fData();
+    }, [search]);
 
     const customStyles = {
         control: (provided, state) => ({
@@ -32,16 +51,23 @@ const admin = () =>{
 
     return(
         <div className="admin">
-            <div className="drop-box">
-                    <Select
-                    className='select'
-                    id="dropdown"
-                    options={options}
-                    value={selected}
-                    onChange={handleSelectChange}
-                    isSearchable={false}
-                    styles={customStyles}
-                    />
+          <div className="container">
+              <div className="drop-box">
+                      <Select
+                      className='select'
+                      id="dropdown"
+                      options={options}
+                      value={selected}
+                      onChange={handleSelectChange}
+                      isSearchable={false}
+                      styles={customStyles}
+                      />
+              </div>
+              <div className="data-table">
+                    {data.map((item) => (
+                        <div key={item._id}>{item.query}</div>
+                    ))}
+              </div>
             </div>
         </div>
     )
