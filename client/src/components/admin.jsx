@@ -63,10 +63,16 @@ const admin = () =>{
                       styles={customStyles}
                       />
               </div>
-              <div className="data-table">
-                    {data.map((item) => (
-                        <div key={item._id}>{item.query}</div>
+              <div className='body-div'>
+                <table className='data-table'>
+                  <tbody>
+                    {data.map((item,index) => (
+                      <tr key={index} style={{height:'50px'}}>
+                        <td>{item.query}</td>
+                      </tr>
                     ))}
+                  </tbody>
+                </table>
               </div>
             </div>
         </div>
