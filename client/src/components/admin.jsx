@@ -64,15 +64,12 @@ const admin = () =>{
                       />
               </div>
               <div className='body-div'>
-                <table className='data-table'>
-                  <tbody>
-                    {data.map((item,index) => (
-                      <tr key={index} style={{height:'50px'}}>
-                        <td>{item.query}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                {data.map((item,index)=>(
+                    <div className='data' key={index} style={{backgroundColor: index % 2 == 0 ? '#B0C4DE' : '#6CB4EE'}}>
+                      <div>{item.query}</div>
+                      <div>{item.key}</div>
+                    </div>
+                ))}
               </div>
             </div>
         </div>
