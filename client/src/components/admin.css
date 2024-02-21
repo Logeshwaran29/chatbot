@@ -1,10 +1,11 @@
-.admin{
+.admin {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #F0F8FF;
 }
+
 .container {
     display: grid;
     grid-template-columns: 1fr;
@@ -17,7 +18,7 @@
     overflow: hidden;
 }
 
-.drop-box{
+.drop-box {
     width:40%;
     height: 0%;
 }
@@ -34,7 +35,7 @@
     border-radius: 10px;
 }
 
-.data{
+.data {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,17 +48,17 @@
     font-size: larger;
 }
 
-.body-div::-webkit-scrollbar{
+.body-div::-webkit-scrollbar {
     width: 8px;
 }
-.body-div::-webkit-scrollbar-track{
+.body-div::-webkit-scrollbar-track {
     background: #333;
     border-radius: 10px;
 }
-.body-div::-webkit-scrollbar-thumb{
+.body-div::-webkit-scrollbar-thumb {
     background: #3498db;
     border-radius: 10px;
 }
-.body-div::-webkit-scrollbar-thumb:hover{
+.body-div::-webkit-scrollbar-thumb:hover {
     background: #0097fb;
 }
