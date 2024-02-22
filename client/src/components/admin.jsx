@@ -41,10 +41,11 @@ const admin = () =>{
           border: '1px solid #ccc',
           borderRadius: '4px',
           boxShadow: state.isFocused ? '0 0 0 2px #3366cc' : null,
+          backgroundColor: '#E1EBEE',
         }),
         option: (provided, state) => ({
           ...provided,
-          backgroundColor: state.isSelected ? '#3366cc' : null,
+          backgroundColor: state.isSelected ? '#3366cc' : '#E1EBEE',
           color: state.isSelected ? 'white' : 'black',
         }),
       };

@@ -1,11 +1,16 @@
 from flask import Flask , jsonify , request
 from pymongo import MongoClient
 from flask_cors import CORS
+import random
 
 
 app = Flask(__name__)
 CORS(app, origins='*')
 
+l=["Apologies, it seems I don't have the information you're looking for. Is there something else I can help you with?",
+   "I'm sorry, but I couldn't find a specific answer to your request. Can I assist you with anything else?",
+   "I'm constantly learning, but I might not have the most up-to-date information on certain topics. Is there anything else I can check for you?",
+   "Learning is an ongoing process for me. If there's something I can't address, I appreciate your understanding as I strive to get better. How else may I assist you?"]
 
 client = MongoClient('mongodb://localhost:27017')
 db=client.Tiruchengode
@@ -66,30 +71,34 @@ def chat():
             res=list(collection.find(req_query))
 
             if res:
-                data={
-                    "key":"answered",
-                    "query":req.get('query','')
-                }
+                find = req.get('query','')
 
-                coll.insert_one(data)
+                if not coll.find_one({'query':find}):
+
+                    data={
+                        "key":"answered",
+                        "query":find
+                    }
+
+                    coll.insert_one(data)
 
                 for item in res:
                     item['_id'] = str(item['_id'])
             
                 return jsonify({"data":res})
             else:
-                data={
-                    "key":"not answered",
-                    "query":req.get('query','')
-                }
+                find = req.get('query','')
+                if not coll.find_one({'query':find}):
 
-                coll.insert_one(data)
-                
-                out=list(collection.find({'key':'error'}))
-                for item in out:
-                    item['_id'] = str(item['_id'])
+                    data={
+                        "key":"answered",
+                        "query":find
+                    }
 
-                return jsonify({"data":out})
+                    coll.insert_one(data)
+
+                return jsonify({"data":[{'res':{'c0':random.choice(l)}}]})
+            
         else :
             return jsonify({"error":"invalid query"}),400
         

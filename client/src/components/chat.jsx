@@ -31,7 +31,7 @@ const Chat = () => {
 
       axios.post('http://127.0.0.1:5000/chat',{"query" : input.trim()})
       .then(response =>{
-        console.log(response.data.data[0].key);
+        console.log(response.data.data[0]);
         setChatMessages((prevMessages) => [
           ...prevMessages,{type: 'bot', text: response.data.data[0].res }
         ]);
