@@ -27,18 +27,22 @@
     background: transparent;
     border-bottom: #333;
   }
-  .dis::-webkit-scrollbar{
+
+  .dis::-webkit-scrollbar {
     width: 5px;
   }
-  .dis::-webkit-scrollbar-track{
+
+  .dis::-webkit-scrollbar-track {
     background: #333;
     border-radius: 10px;
   }
-  .dis::-webkit-scrollbar-thumb{
+
+  .dis::-webkit-scrollbar-thumb {
     background: #3498db;
     border-radius: 10px;
   }
-  .dis::-webkit-scrollbar-thumb:hover{
+
+  .dis::-webkit-scrollbar-thumb:hover {
     background: #0097fb;
   }
   
@@ -76,7 +80,7 @@
     background: transparent;
   }
   
-  .user{
+  .user {
     display: flex;
     align-self: flex-end;
     align-items: center;
@@ -89,7 +93,7 @@
     word-wrap: break-word;
     max-width: 100%;
   }
-  .bot{
+  .bot {
     display: flex;
     align-self: flex-start;
     align-items: center;
@@ -102,7 +106,7 @@
     word-wrap: break-word;
     max-width: 100%;
   }
-  .tt{
+  .tt {
     padding: 1% 1%;
     background: transparent;
   }
