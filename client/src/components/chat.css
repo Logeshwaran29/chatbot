@@ -3,29 +3,27 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(212, 211, 211);
+    background: linear-gradient(to bottom, #7895d4 0%, #d8a5bf 100%);
   }
   
   .chat {
     overflow: hidden;
-    background: rgba(185, 185, 185,0.5);
-    height: 80vh;
-    width:50%;
+    background: rgba(255, 255, 255, 0.6);
     position: relative;
     border-radius: 20px;
-    padding: 1% 1%;
-    border: 3px solid white;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   }
-  
+
   .dis {
     display: flex;
     flex-direction: column;
-    height: 85%;
     overflow-y: auto;
-    padding: 10px;
+    padding: 1%;
+    background-color: #525353;
     background: transparent;
     border-bottom: #333;
+    gap: 2%;
+    scroll-behavior: smooth;
   }
 
   .dis::-webkit-scrollbar {
@@ -33,26 +31,23 @@
   }
 
   .dis::-webkit-scrollbar-track {
-    background: #333;
+    background: #6d6c6c;
     border-radius: 10px;
   }
 
   .dis::-webkit-scrollbar-thumb {
-    background: #3498db;
+    background: #7895d4;
     border-radius: 10px;
   }
 
   .dis::-webkit-scrollbar-thumb:hover {
-    background: #0097fb;
+    background: #7baddf;
   }
   
   .msg {
     display: flex;
-    background-color: black;
-    height:5vh;
-    width: 80%;
+    background-color: rgba(61, 59, 59, 0.9); 
     position: absolute;
-    bottom: 3.5%;
     justify-content: space-around;
     align-items: center;
     border-radius: 20px;
@@ -61,52 +56,513 @@
     padding: .5% 1%;
     border: solid 3px white;
   }
+
+  .loading, .not-loading{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    gap: 5%;
+    padding: 1%;
+    width: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 2s ease-in-out;
+  }
+
+  .not-loading{
+    display: none;
+  }
+
+  .dot{
+    height: .75rem;
+    width: .75rem;
+    border-radius: 15px;
+    background-color: #E30B5C;
+    animation: loading 1.5s infinite ease-in-out;
+  }
+
+  .dot:nth-child(1){
+    animation-delay: -0.3s;
+  }
+
+  .dot:nth-child(3){
+    animation-delay: 0.1s;
+  }
+
+  @keyframes loading{
+    0%{
+      transform: scale(1);
+    }
+    
+    50%{
+      transform: scale(0);
+    }
+
+    100%{
+      transform: scale(1);
+    }
+  }
   
-  .input {
-    height: 40%;
-    width: 70%;
-    border-radius: 30px;
-    border: solid 3px rgb(255, 255, 255);
-    background-color: rgb(255, 255, 255) !important;
-    color: black;
+  .input, .text-container {
+    border-radius: 12px;
     padding: .5% 1.5%;
     font-size: 90%;
+  }
+
+  .input{
+    color: black;
+    border: solid 1px rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, .85);
+  }
+
+  .text-container{
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+
+  .input:focus{
+    outline: none;
   }
   
   .i {
     cursor: pointer;
-    fill: #fff; 
-    margin-left: 10px; 
+    fill: #ffffff; 
     background: transparent;
+  }
+
+  .rec{
+    border-radius: 15px;
+    border: 2px solid white;
+    height: 35%;
+    width: 5%;
+    padding: 1% 1%;
+    transition: .5s;
+  }
+
+  .user, .bot{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .tt {
+    display: flex;
+    flex-direction: column;
+    max-width: 95%;
+    text-overflow: ellipsis;
+    padding: 1%;
   }
   
-  .user {
+  .tt li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .tt p {
+    margin: 0;
+    border-radius: 16px;
+    font-size: 1.075em;
+    line-height: 25px;
+  }
+  .tt img{
+    height: 50%;
+    width: 100%;
+  }
+
+  .user-msg{
     display: flex;
-    align-self: flex-end;
+    gap: .5%;
+  }
+
+  .user-icon{
+    padding: .5%;
+    margin: 2px;
+  }
+
+  .user-msg-div{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 1%;
+  }
+
+  .user-msg-div label{
+    justify-content: flex-start;
+    font-size: large;
+  }
+
+  .bot-icon img{
+    height: 100%;
+    width: 100%;
+  }
+
+  .mic-container{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    text-align: right;
-    padding: 1.5% 1.5%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    background-color: #3498db;
-    color: #fff;
-    word-wrap: break-word;
+  }
+
+  .suggestion-div{
+    display: flex;
+    width: 90%;
+    padding: 1.5%;
+    position: absolute;
+  }
+
+  .suggestion{
+    display: flex;
+    justify-content: flex-end;
+    gap: 2%;
+    height: 2em;
+    width: 100%;
     max-width: 100%;
   }
-  .bot {
+
+  .sug-div{
     display: flex;
-    align-self: flex-start;
+    justify-content: center;
     align-items: center;
-    text-align: left;
-    padding: 1.5% 1.5%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    background-color: #e0e0e0;
-    color: #333;
-    word-wrap: break-word;
-    max-width: 100%;
+    padding: 2%;
+    border: 2px solid #cc00ff;
+    border-radius: 15px;
+    cursor: pointer;
   }
-  .tt {
+  .sug-div p{
+    background-image: linear-gradient( 135deg, #fa17bd 10%, #8115ed 100%);
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent;
+    border: 2px solid transparent;
+  }
+
+  .sug-div:hover{
+    background-color: #ffffff9f;
+    transition: .5s;
+  }
+  .img-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #333;
+    color: white;
+  }
+
+  .img-container img{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .carousel {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0000008e;
+    border-radius: 20px;
+    animation: pop-up .5s 1 ease-in;
+  }
+
+  @keyframes pop-up {
+    0%{
+      transform: scale(0);
+    }
+    100%{
+      transform: scale(1);
+    }
+  }
+
+  .caro-label{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1%;
+  }
+  .caro-label label{
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    width: 3%;
+  }
+
+  .caro-label label:hover{
+    background-color: #a5a4a4;
+  }
+  
+  .slider-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    width: 90%;
+    gap: 2%;
+    fill: #d6d6d6;
+  }  
+
+  .slider-div::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  .slider-div::-webkit-scrollbar-track {
+    background: #b3b3b3;
+    border-radius: 10px;
+  }
+
+  .slider-div::-webkit-scrollbar-thumb {
+    background: #252525;
+    border-radius: 10px;
+  }
+
+  .slider-div::-webkit-scrollbar-thumb:hover {
+    background: #343434;
+  }
+  
+  .img_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 90%;
+  }
+
+  .arrow-svg:hover{
+    fill: white;
+  }
+  
+  .img_div img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  /* For mobile devices */
+@media only screen and (max-width: 767px) {
+  .main{
+    padding: 1%;
+    position: fixed;
+  }
+
+  .chat{
+    height: 93%;
+    width: 92%;
+    padding: 2%;
+  }
+
+  .dis{
+    height: 87%;
+  }
+
+  .msg{
+    height:8vh;
+    width: 95%;
+    bottom: 1.5%;
+  }
+  .input, .text-container {
+    height: 55%;
+    font-size: 85%;
+  }
+  .input{
+    width: 65%;
+  }
+  .text-container{
+    width: 50%;
+    height: 80%;
+    background-color: rgba(150, 150, 150, 0.2);
+  }
+  .i{
+    height: 60%;
+  }
+  .rec{
+    height: 40%;
+    width: 10%;
+  }
+  .mic-container{
+    justify-content: space-evenly;
+    height: 55%;
+    width: 30%;
+  }
+  .user, .bot{
+    max-width: 90%;
+    padding: 2.5%;
+    margin: 1px;
+    margin-bottom: 3px;
+  }
+
+  .user{
+    white-space: nowrap;
+    padding: 3%;
+  }
+  .bot-icon{
+    height: 2.2rem;
+    width: 12%;
+    margin: 2px;
+  }
+  .user-msg-div{
+    gap: 0px;
+  }
+
+  .tt p{
+    font-size: medium;
+  }
+  .loading{
+    top: 85%;
+  }
+  .suggestion-div{
+    top: 83%;
+  }
+  .sug-div{
+    font-size: smaller;
+  }
+  .img-container{
+    padding: 3.5%;
+    width: 95%;
+  }
+  .carousel{
+    width: 90%;
+    height: 60%;
+  }
+  .slider-div{
+    height: 85%;
+  }
+  .caro-label{
+    width: 90%;
+    margin: -2%;
+    height: 5%;
+  }
+  .caro-label label{
+    height: 100%;
+    width: 5%;
+  }
+  .img_div{
+    height: 75%;
+    width: 90%;
+  }
+}
+
+/* For tablets and small desktops */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .chat{
+    height: 60vh;
+    width:75%;
+  }
+  .dis{
+    height: 85%;
+  }
+
+  .msg{
+    height:5vh;
+    width: 90%;
+    bottom: 3.5%;
+  }
+  .input{
+    width: 65%;
+    height: 60%;
+  }
+  .bot{
+    max-width: 90%;
+    padding: 3%;
+    margin: 1px;
+    margin-bottom: 3px;
+  }
+  .user{
+    padding: 3%;
+    margin: 1px;
+    margin-bottom: 3px;
+  }
+  .bot-icon{
+    height: 2.2rem;
+    width: 5%;
+    margin: 2px;
+  }
+}
+
+/* For larger desktops and laptops */
+@media only screen and (min-width: 992px) {
+  .chat{
+    height: 80vh;
+    width: 50%;
     padding: 1% 1%;
-    background: transparent;
   }
+
+  .dis{
+    height: 82%;
+  }
+
+  .msg{
+    height:8vh;
+    width: 90%;
+    bottom: 3%;
+  }
+
+  .input, .text-container {
+    height: 55%;
+    font-size: 90%;
+  }
+  .input{
+    width: 75%;
+  }
+  .text-container{
+    width: 60%;
+  }
+
+  .rec{
+    height: 35%;
+    width: 5%;
+  }
+
+  .rec:hover{
+    background-color: #6c6c6c;
+    transition: .5s;
+  }
+  .mic-container{
+    height: 55%;
+    width: 20%;
+  }
+  .user, .bot{
+    max-width: 95%;
+  }
+  .user{
+    white-space: nowrap;
+  }
+
+  .bot-icon{
+    height: 2.2rem;
+    width: 5%;
+    margin: 2px;
+  }
+
+  .user-msg-div{
+    gap: 5px;
+  }
+  .loading{
+    top: 80%;
+  }
+  .suggestion-div{
+    top: 77%;
+  }
+
+  .img-container{
+    padding: 2%;
+    width: 75%;
+  }
+  .carousel{
+    height: 80%;
+    width: 50%;
+  }
+  .slider-div{
+    height: 85%;
+  }
+  .caro-label{
+    width: 95%;
+  }
+}

@@ -3,46 +3,91 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  /* background: linear-gradient(to bottom, #828686 0%, #e0e0e0 100%); */
+  background-color: #A9C9FF;
+background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
 }
 
 .login-container {
-  background-color: white;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #8BC6EC;
+  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+  gap: 2%;
+  padding: 4%;
   border-radius: 8px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  width: 300px;
+  width: 50%;
+  height: 60%;
   text-align: center;
-  margin: auto;
-  margin-top: 10vh;
 }
 
-.login-container h2 {
-  margin-bottom: 20px;
+.login-img{
+  height: 90%;
+  width: 70%;
 }
 
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-}
-
-.form-group input {
+.form-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
 }
 
-.form-group button {
-  background-color: #3498db;
+.form{
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  width: 60%;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+  padding: 2%;
+  gap: 10%;
+  font-size: large;
+}
+
+.form-group label{
+  margin-right: 100%;
+}
+
+.login-input {
+  width: 100%;
+  padding-left: 1.5%;
+  padding-bottom: 3%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: large;
+  border-bottom: 2.5px solid black;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: inherit !important;
+}
+
+.form-button button {
+  background-color: #367CFF;
   color: #fff;
   padding: 10px;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
-  width: 100%;
+  width: 60%;
+  font-size: medium;
+}
+
+.form-button button:hover{
+  box-shadow: rgba(27, 58, 151, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
