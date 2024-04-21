@@ -348,8 +348,9 @@
   /* For mobile devices */
 @media only screen and (max-width: 767px) {
   .main{
-    padding: 1%;
+    /* padding: 1%; */
     position: fixed;
+    font-size: .9rem;
   }
 
   .chat{
@@ -360,6 +361,7 @@
 
   .dis{
     height: 87%;
+    gap: 1%;
   }
 
   .msg{
@@ -393,7 +395,7 @@
   }
   .user, .bot{
     max-width: 90%;
-    padding: 2.5%;
+    padding: 1.5%;
     margin: 1px;
     margin-bottom: 3px;
   }
@@ -404,7 +406,7 @@
   }
   .bot-icon{
     height: 2.2rem;
-    width: 12%;
+    width: 2.2rem;
     margin: 2px;
   }
   .user-msg-div{
@@ -412,13 +414,13 @@
   }
 
   .tt p{
-    font-size: medium;
+    font-size: .9rem;
   }
   .loading{
     top: 85%;
   }
   .suggestion-div{
-    top: 83%;
+    top: 84%;
   }
   .sug-div{
     font-size: smaller;
