@@ -348,13 +348,14 @@
   /* For mobile devices */
 @media only screen and (max-width: 767px) {
   .main{
-    /* padding: 1%; */
+    align-items: normal;
+    padding: 1%;
     position: fixed;
     font-size: .9rem;
   }
 
   .chat{
-    height: 93%;
+    height: 90%;
     width: 92%;
     padding: 2%;
   }
@@ -366,7 +367,7 @@
 
   .msg{
     height:8vh;
-    width: 95%;
+    width: 92%;
     bottom: 1.5%;
   }
   .input, .text-container {
@@ -382,11 +383,11 @@
     background-color: rgba(150, 150, 150, 0.2);
   }
   .i{
-    height: 60%;
+    height: 1.3rem;
   }
   .rec{
-    height: 40%;
-    width: 10%;
+    height: 30%;
+    width: 8%;
   }
   .mic-container{
     justify-content: space-evenly;
@@ -420,7 +421,7 @@
     top: 85%;
   }
   .suggestion-div{
-    top: 84%;
+    top: 83%;
   }
   .sug-div{
     font-size: smaller;
