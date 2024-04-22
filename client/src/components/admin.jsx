@@ -73,7 +73,7 @@ const Admin = ({isLogin, setLogin}) =>{
       if (isLogin){
         const count = async()=>{
           try{
-            await axios.get('http://127.0.0.1:5000/profile')
+            await axios.get('https://chatbot-twrj.onrender.com/profile')
             .then(res =>{
               setNewUser(res.data[0].name);
               setNewPass(res.data[0].pass);
@@ -91,13 +91,13 @@ const Admin = ({isLogin, setLogin}) =>{
       if (isLogin){
         const fData = async()=>{
           try{
-            await axios.post('http://127.0.0.1:5000/admin',{"query" : [opt, search]})
+            await axios.post('https://chatbot-twrj.onrender.com/admin',{"query" : [opt, search]})
             .then(res =>{
               setData(res.data);
             })
             .catch(err => console.log(err));
 
-            await axios.get('http://127.0.0.1:5000/count')
+            await axios.get('https://chatbot-twrj.onrender.com/count')
             .then(res =>{
               console.log(res.data);
               setCount(res.data[0]);
@@ -116,7 +116,7 @@ const Admin = ({isLogin, setLogin}) =>{
     const handleSubmit = async () => {
       try {
         if (newUser !=='' && newPass !==''){
-          await axios.post('http://127.0.0.1:5000/profileUpdate',{'query': div1 ? newUser : newPass, 'check': div1 ? 0 : 1})
+          await axios.post('https://chatbot-twrj.onrender.com/profileUpdate',{'query': div1 ? newUser : newPass, 'check': div1 ? 0 : 1})
           .then(res =>{
             if (res.data.data === 'updated'){
               div1? setDiv1(false) : setDiv2(false); 
