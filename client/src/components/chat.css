@@ -361,14 +361,14 @@
   }
 
   .dis{
-    height: 87%;
+    height: 86%;
     gap: 1%;
   }
 
   .msg{
     height:8vh;
     width: 92%;
-    bottom: 1.5%;
+    bottom: 1%;
   }
   .input, .text-container {
     height: 55%;
@@ -422,7 +422,7 @@
     top: 85%;
   }
   .suggestion-div{
-    top: 83%;
+    top: 83.5%;
   }
   .sug-div{
     font-size: smaller;
@@ -432,8 +432,9 @@
     width: 95%;
   }
   .carousel{
+    top: 15%;
     width: 90%;
-    height: 60%;
+    height: 50%;
   }
   .slider-div{
     height: 85%;

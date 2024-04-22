@@ -74,7 +74,7 @@ const Chat = () => {
       setSuggestion([]);
       setloading(true);
 
-      await axios.post('https://chatbot-twrj.onrender.com/chat',{"query" : cInput.replace(/\./g, ' ').trim()})
+      await axios.post('http://192.168.1.5:5000/chat',{"query" : cInput.replace(/\./g, ' ').trim()})
       .then(response =>{
         setTimeout(() => {
           setChatMessages(prevMessages => [
@@ -100,9 +100,6 @@ const Chat = () => {
       setInput('');
       resetTranscript();
       seti(prevCount => prevCount + 1);
-      if (!mic){
-        inputRef.current.focus();
-      }
     }
   };
 
@@ -191,6 +188,7 @@ const Chat = () => {
             className='input'
             type="text"
             value={input}
+            onFocus={() => inputRef.current.focus()}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={ (e) =>{
               if (e.key === 'Enter') sendMsg();
