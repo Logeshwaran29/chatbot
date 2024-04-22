@@ -1,4 +1,4 @@
-import random, re
+import random, re, os
 from flask import Flask , jsonify , request
 from pymongo import MongoClient
 from flask_cors import CORS
@@ -204,4 +204,5 @@ def index():
     return jsonify("server is running")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
