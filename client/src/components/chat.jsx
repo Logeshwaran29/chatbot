@@ -74,7 +74,7 @@ const Chat = () => {
       setSuggestion([]);
       setloading(true);
 
-      await axios.post('http://192.168.1.5:5000/chat',{"query" : cInput.replace(/\./g, ' ').trim()})
+      await axios.post('https://chatbot-twrj.onrender.com/chat',{"query" : cInput.replace(/\./g, ' ').trim()})
       .then(response =>{
         setTimeout(() => {
           setChatMessages(prevMessages => [
