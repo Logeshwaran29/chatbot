@@ -1,8 +1,10 @@
 import random, re, os
 from flask import Flask , jsonify , request
-from pymongo import MongoClient
+# from pymongo import MongoClient
 from flask_cors import CORS
 from pymongo.collection import Collection
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 
 app = Flask(__name__)
 CORS(app, origins='*')
@@ -11,8 +13,9 @@ l=["Apologies, it seems I don't have the information you're looking for. Is ther
    "I'm sorry, but I couldn't find a specific answer to your request. Can I assist you with anything else?😊",
    "Apologies, it seems I don't have a response for that request. Could you try asking in a different way or inquire about something else?😊"]
 
-url = "mongodb+srv://logeshwarancse20:log123esh@cluster0.zwmyvfx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-client = MongoClient(url)
+url = "mongodb+srv://logeshwarancse20:log123esh@cluster0.pte9ndk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+# client = MongoClient(url)
+client = MongoClient(url, server_api=ServerApi('1'))
 db=client.Tiruchengode
 collection: Collection = None
 
