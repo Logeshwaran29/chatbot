@@ -14,7 +14,6 @@ l=["Apologies, it seems I don't have the information you're looking for. Is ther
    "Apologies, it seems I don't have a response for that request. Could you try asking in a different way or inquire about something else?😊"]
 
 url = "mongodb+srv://logeshwarancse20:log123esh@cluster0.pte9ndk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-# client = MongoClient(url)
 client = MongoClient(url, server_api=ServerApi('1'))
 db=client.Tiruchengode
 collection: Collection = None
